@@ -1477,6 +1477,70 @@
   .genesis-avances__item h5 { margin: 0; color: var(--gold); font: 600 .72rem/1.4 'Cinzel', serif; }
   .genesis-avances__note { margin: .9rem 0 0; color: #bfa991; font: italic .7rem/1.5 'IM Fell English', serif; }
   @media (max-width: 390px) { .genesis-avances { padding: .85rem; } .genesis-avances__grid { grid-template-columns: 1fr; } }
+
+  /* ══════════════════════════════════════════
+     🎬 TARJETAS QUE SE DAN VUELTA — "Ver Reverso" muestra el video
+     ══════════════════════════════════════════ */
+  .flip-card { perspective: 1200px; }
+  .flip-card__inner {
+    position: relative;
+    width: 100%;
+    min-height: 185px;
+    transition: transform 0.65s cubic-bezier(.4,.2,.2,1);
+    transform-style: preserve-3d;
+  }
+  .flip-card.is-flipped .flip-card__inner { transform: rotateY(180deg); }
+  .flip-card__front, .flip-card__back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .flip-card__back {
+    transform: rotateY(180deg);
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  .flip-card__btn {
+    margin-top: auto;
+    align-self: flex-start;
+    background: rgba(255,140,0,0.12);
+    border: 1px solid var(--link-border);
+    color: var(--gold);
+    font: 600 0.6rem 'Cinzel', serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.32rem 0.6rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .flip-card__btn:hover { background: rgba(255,140,0,0.22); border-color: var(--ember); }
+  .flip-card__btn--back { margin-top: 0.3rem; align-self: center; }
+  .flip-card__video-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--link-border);
+  }
+  .flip-card__video-wrap iframe { width: 100%; height: 100%; border: 0; }
+  .flip-card__placeholder {
+    color: #c8a878;
+    font: italic 0.68rem/1.4 'IM Fell English', serif;
+    text-align: center;
+    padding: 0 0.6rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .flip-card__inner { transition: none; }
+  }
 </style>
 </head>
 <body>
@@ -1797,10 +1861,78 @@
         </details>
       </article>
       <div class="genesis-avances__grid">
-        <article class="genesis-avances__item"><h5>🐝 Abeja Reina</h5><p>Descenso rápido en picada y un aguijonazo que extiende su abdomen por un instante.</p></article>
-        <article class="genesis-avances__item"><h5>🪲 Escarabajo</h5><p>Cuernos de quitina, placas renovadas y cámaras químicas acompañan su armadura.</p></article>
-        <article class="genesis-avances__item"><h5>⚡ Rayo del Dragón</h5><p>Una carga eléctrica sonora acompaña la concentración antes de liberar el ataque.</p></article>
-        <article class="genesis-avances__item"><h5>🦔 Pangolín</h5><p>Su Rueda de Obsidiana transforma la defensa en una embestida rodante.</p></article>
+        <article class="genesis-avances__item flip-card">
+          <div class="flip-card__inner">
+            <div class="flip-card__front">
+              <h5>🐝 Abeja Reina</h5>
+              <p>Descenso rápido en picada y un aguijonazo que extiende su abdomen por un instante.</p>
+              <button class="flip-card__btn" type="button">🎬 Ver Reverso</button>
+            </div>
+            <div class="flip-card__back">
+              <div class="flip-card__video-wrap">
+                <!-- 🎬 Cuando tengas el link de YouTube de la Abeja Reina, reemplazá el <p> de abajo por:
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Abeja Reina — avance" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                -->
+                <p class="flip-card__placeholder">🎬 Video próximamente</p>
+              </div>
+              <button class="flip-card__btn flip-card__btn--back" type="button">↩ Volver</button>
+            </div>
+          </div>
+        </article>
+        <article class="genesis-avances__item flip-card">
+          <div class="flip-card__inner">
+            <div class="flip-card__front">
+              <h5>🪲 Escarabajo</h5>
+              <p>Cuernos de quitina, placas renovadas y cámaras químicas acompañan su armadura.</p>
+              <button class="flip-card__btn" type="button">🎬 Ver Reverso</button>
+            </div>
+            <div class="flip-card__back">
+              <div class="flip-card__video-wrap">
+                <!-- 🎬 Cuando tengas el link de YouTube del Escarabajo, reemplazá el <p> de abajo por:
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Escarabajo — avance" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                -->
+                <p class="flip-card__placeholder">🎬 Video próximamente</p>
+              </div>
+              <button class="flip-card__btn flip-card__btn--back" type="button">↩ Volver</button>
+            </div>
+          </div>
+        </article>
+        <article class="genesis-avances__item flip-card">
+          <div class="flip-card__inner">
+            <div class="flip-card__front">
+              <h5>⚡ Rayo del Dragón</h5>
+              <p>Una carga eléctrica sonora acompaña la concentración antes de liberar el ataque.</p>
+              <button class="flip-card__btn" type="button">🎬 Ver Reverso</button>
+            </div>
+            <div class="flip-card__back">
+              <div class="flip-card__video-wrap">
+                <!-- 🎬 Cuando tengas el link de YouTube del Rayo del Dragón, reemplazá el <p> de abajo por:
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Rayo del Dragón — avance" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                -->
+                <p class="flip-card__placeholder">🎬 Video próximamente</p>
+              </div>
+              <button class="flip-card__btn flip-card__btn--back" type="button">↩ Volver</button>
+            </div>
+          </div>
+        </article>
+        <article class="genesis-avances__item flip-card">
+          <div class="flip-card__inner">
+            <div class="flip-card__front">
+              <h5>🦔 Pangolín</h5>
+              <p>Su Rueda de Obsidiana transforma la defensa en una embestida rodante.</p>
+              <button class="flip-card__btn" type="button">🎬 Ver Reverso</button>
+            </div>
+            <div class="flip-card__back">
+              <div class="flip-card__video-wrap">
+                <!-- 🎬 Cuando tengas el link de YouTube del Pangolín, reemplazá el <p> de abajo por:
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Pangolín — avance" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                -->
+                <p class="flip-card__placeholder">🎬 Video próximamente</p>
+              </div>
+              <button class="flip-card__btn flip-card__btn--back" type="button">↩ Volver</button>
+            </div>
+          </div>
+        </article>
       </div>
       <p class="genesis-avances__note">Avances en desarrollo. La disponibilidad se anunciará por los canales oficiales.</p>
     </section>
@@ -2423,6 +2555,16 @@ document.querySelectorAll('.link-btn').forEach(btn => {
 const style = document.createElement('style');
 style.textContent = '@keyframes ripple { to { transform:scale(2.5); opacity:0; } }';
 document.head.appendChild(style);
+
+/* ══════════════════════════════════════════
+   🎬 TARJETAS QUE SE DAN VUELTA — Ver Reverso / Volver
+   ══════════════════════════════════════════ */
+document.querySelectorAll('.flip-card__btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.flip-card');
+    if (card) card.classList.toggle('is-flipped');
+  });
+});
 
 /* ══════════════════════════════════════════
    🌧️ LLUVIA
