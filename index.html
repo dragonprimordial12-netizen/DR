@@ -1540,9 +1540,149 @@
     text-align: center;
     padding: 0 0.6rem;
   }
+  /* ═══════════════════════════════════════════════════
+     ✦ APORTE ORIGINAL — ARCHIVO DE COMBATE + MODO CINE
+     ═══════════════════════════════════════════════════ */
+  .genesis-archive {
+    display: flex; align-items: center; gap: .7rem;
+    padding: .72rem .82rem; margin: .7rem 0 .72rem;
+    border-radius: 9px; border: 1px solid rgba(255, 200, 105, .27);
+    background: linear-gradient(100deg, rgba(255, 140, 0, .105), rgba(8, 5, 17, .6) 70%);
+    box-shadow: inset 0 1px rgba(255,255,255,.035);
+  }
+  .genesis-archive__glyph { color: var(--gold); font-size: 1.6rem; text-shadow: 0 0 15px var(--glow-soft); animation: archiveShine 3s ease-in-out infinite; }
+  .genesis-archive__label { flex: 1; font: 700 .62rem 'Cinzel', serif; color: #ffe0aa; letter-spacing: .08em; }
+  .genesis-archive__label small { display: block; margin-top: .16rem; font: italic .68rem/1.3 'IM Fell English',serif; letter-spacing: 0; color: #bfa890; }
+  .genesis-archive__count { flex: 0 0 auto; border-left: 1px solid rgba(255,215,0,.23); padding-left: .72rem; color: var(--gold); font: 900 1.1rem/1 'Cinzel Decorative', serif; text-align: center; }
+  .genesis-archive__count small { display: block; margin-top: .25rem; font: 600 .48rem 'Cinzel', serif; letter-spacing: .1em; }
+  @keyframes archiveShine { 50% { filter: brightness(1.7); transform: rotate(90deg) scale(1.12); } }
+  .genesis-avances__hero { overflow: hidden; border-color: rgba(255,54,68,.28); background: radial-gradient(ellipse at 100% 0%, rgba(194,10,35,.13), transparent 65%), rgba(4,3,10,.65); }
+  .genesis-avances__hero::after { content: 'ᚷ'; position: absolute; right: .7rem; top: -.5rem; font: 4.8rem 'Cinzel',serif; color: #ee3045; opacity: .09; pointer-events: none; }
+  .genesis-hero__insignia { display:flex; justify-content:space-between; gap:.4rem; margin-top:.6rem; font: 600 .53rem 'Cinzel',serif; letter-spacing:.1em; color: #ff7181; }
+  .genesis-hero__insignia span { color: #d8a8ad; }
+  .genesis-avances__item[data-skill="abeja"] { --skill-rgb: 255,194,61; --skill-color: #ffd86b; }
+  .genesis-avances__item[data-skill="escarabajo"] { --skill-rgb: 83,211,149; --skill-color: #8ae7b7; }
+  .genesis-avances__item[data-skill="dragon"] { --skill-rgb: 120,175,255; --skill-color: #9ecbff; }
+  .genesis-avances__item[data-skill="pangolin"] { --skill-rgb: 190,132,255; --skill-color: #d6b4ff; }
+  .genesis-avances__item.flip-card {
+    border-color: rgba(var(--skill-rgb), .35);
+    background: radial-gradient(ellipse at 80% 0%, rgba(var(--skill-rgb),.13), transparent 68%), rgba(4,3,10,.8);
+    overflow: hidden; isolation: isolate;
+    transition: border-color .3s, box-shadow .3s, transform .3s;
+  }
+  .genesis-avances__item.flip-card:hover,
+  .genesis-avances__item.flip-card:focus-within {
+    border-color: rgba(var(--skill-rgb),.8);
+    box-shadow: 0 8px 28px rgba(var(--skill-rgb),.17), inset 0 0 16px rgba(var(--skill-rgb),.06);
+    transform: translateY(-3px);
+  }
+  .genesis-avances__item.flip-card::after {
+    content: ''; position:absolute; z-index:2; pointer-events:none;
+    bottom:0;left:0;width:100%;height:3px;
+    background:linear-gradient(90deg,transparent,var(--skill-color),transparent);
+    transform:scaleX(.15);opacity:.5; transition: transform .35s,opacity .35s;
+  }
+  .genesis-avances__item.flip-card:hover::after,
+  .genesis-avances__item.flip-card:focus-within::after,
+  .genesis-avances__item.flip-card.is-flipped::after { transform:scaleX(1);opacity:1; }
+  .genesis-avances__item.flip-card .flip-card__inner { min-height: 225px; }
+  .genesis-avances__item.flip-card h5 { color: var(--skill-color); position:relative; z-index:1; font-size:.76rem; }
+  .genesis-avances__item.flip-card p { position:relative; z-index:1; }
+  .skill-front__meta { display:flex; align-items:center; justify-content:space-between; gap:.35rem; margin-bottom:.68rem; color:var(--skill-color); font: 600 .49rem 'Cinzel',serif; letter-spacing:.06em; }
+  .skill-front__meta span:last-child { opacity:.6; }
+  .skill-front__sigil { position:absolute; z-index:0; right:-.3rem; top:1.2rem; font-size:4.1rem; opacity:.15; filter:grayscale(.2); pointer-events:none; transform:rotate(-17deg); transition:transform .45s,opacity .45s; }
+  .genesis-avances__item.flip-card:hover .skill-front__sigil { transform: rotate(0) scale(1.12);opacity:.28; }
+  .genesis-avances__item.flip-card .flip-card__btn { color:var(--skill-color); border-color:rgba(var(--skill-rgb),.3); background:rgba(var(--skill-rgb),.08); position:relative;z-index:2; }
+  .genesis-avances__item.flip-card .flip-card__btn:hover { background:rgba(var(--skill-rgb),.23);border-color:var(--skill-color); }
+  .genesis-avances__item.flip-card .flip-card__btn:focus-visible,
+  .genesis-cinema button:focus-visible, .genesis-cinema a:focus-visible { outline:2px solid #ffe4af; outline-offset:3px; }
+  .genesis-avances__item.flip-card .flip-card__back { gap:.3rem; }
+  .genesis-avances__item.flip-card .flip-card__video-wrap { border-color:rgba(var(--skill-rgb),.45); }
+  .genesis-cinema__open {
+    color: #fff1d4; font:600 .55rem 'Cinzel',serif; letter-spacing:.04em;
+    background:rgba(var(--skill-rgb),.18); border:1px solid rgba(var(--skill-rgb),.58);
+    border-radius:6px; padding:.34rem .7rem;cursor:pointer;
+    transition:background .2s,transform .2s;
+  }
+  .genesis-cinema__open:hover { background:rgba(var(--skill-rgb),.33);transform:scale(1.04); }
+  .genesis-avances__item.flip-card .flip-card__yt-link { color:var(--skill-color); }
+  .genesis-avances__item.flip-card .flip-card__btn--back { margin-top:.08rem; }
+  .genesis-cinema {
+    position:fixed;inset:0;margin:auto;padding:0;width:min(920px,calc(100vw - 24px));max-width:920px;max-height:calc(100dvh - 24px);
+    border:1px solid rgba(255,166,65,.6);border-radius:16px;
+    color:#ffe4bd;background:linear-gradient(160deg,#1b0c16,#070511 70%);
+    box-shadow:0 0 100px rgba(255,90,0,.26),0 25px 70px rgba(0,0,0,.6);
+    overflow:auto;
+  }
+  .genesis-cinema::backdrop { background:rgba(3,2,8,.89);backdrop-filter:blur(10px); }
+  .genesis-cinema__panel { padding:clamp(.7rem,2.8vw,1.35rem); }
+  .genesis-cinema__header { display:flex;justify-content:space-between;align-items:center;gap:.8rem;margin-bottom:.9rem; }
+  .genesis-cinema__eyebrow { display:block;color:#cf955a;font:600 .56rem 'Cinzel',serif;letter-spacing:.14em; }
+  .genesis-cinema__header h3 { margin:.27rem 0 0;font:700 clamp(.98rem,3.4vw,1.32rem) 'Cinzel Decorative',serif;color:#ffdaa3; }
+  .genesis-cinema__close { flex:0 0 auto;width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,166,65,.5);background:rgba(255,100,0,.13);color:#ffe4bd;font-size:1.1rem;cursor:pointer; }
+  .genesis-cinema__close:hover { background:rgba(255,100,0,.3); }
+  .genesis-cinema__screen { aspect-ratio:16/9;width:100%;background:#000;border-radius:10px;overflow:hidden;border:1px solid rgba(255,166,65,.3); }
+  .genesis-cinema__screen iframe { display:block;width:100%;height:100%;border:0; }
+  .genesis-cinema__footer { display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.7rem;padding:.8rem .1rem 0;font:italic .82rem 'IM Fell English',serif;color:#bfa991; }
+  .genesis-cinema__footer a { color:#ffcb78;text-decoration:underline;text-underline-offset:3px;font:600 .64rem 'Cinzel',serif; }
+  @media(max-width:390px) { .genesis-avances__item.flip-card .flip-card__inner { min-height:205px; } }
+  @media(prefers-reduced-motion:reduce) { .genesis-archive__glyph{animation:none} .genesis-avances__item.flip-card,.genesis-avances__item.flip-card::after,.skill-front__sigil,.genesis-cinema__open{transition:none} .genesis-avances__item.flip-card:hover{transform:none} }
   @media (prefers-reduced-motion: reduce) {
     .flip-card__inner { transition: none; }
   }
+/* ═══════════════════════════════════════════════════
+   🩸 DOMINIO DEL LOBO ALFA — VFX locales, 10s / 4 pulsos
+   ═══════════════════════════════════════════════════ */
+.genesis-avances { isolation:isolate; transition: border-color .45s, box-shadow .45s, background .45s; }
+.genesis-avances > :not(.genesis-dominio-vfx) { position: relative; z-index: 2; }
+.genesis-dominio-vfx { position:absolute; z-index: 1; inset:0; pointer-events:none; opacity:0; overflow:hidden; transition:opacity .45s; background:radial-gradient(ellipse at 45% 25%,rgba(211,13,42,.35),transparent 60%),linear-gradient(170deg,rgba(80,5,20,.2),rgba(140,10,35,.2),transparent); }
+.genesis-dominio-vfx::before { content:'';position:absolute;inset:0; background:repeating-linear-gradient(135deg,transparent 0 25px,rgba(255,55,74,.035) 26px 27px,transparent 28px 50px); }
+.genesis-dominio-vfx__core { position:absolute; top:10%;left:50%; transform:translateX(-50%); font: 13rem/1 'Cinzel Decorative',serif; color:#e63450; opacity:.11; text-shadow:0 0 50px rgba(255,20,60,.5); }
+.genesis-dominio-vfx__runa { position:absolute;left:var(--x);top:var(--y); color:#ff6c86;font:2rem/1 'Cinzel',serif;opacity:0;text-shadow:0 0 16px rgba(255,42,77,.85); }
+.genesis-dominio-vfx__pulse { position:absolute;left:50%;top:26%;height:min(68vw,380px);width:min(68vw,380px);border:2px solid rgba(255,58,83,.7);box-shadow:0 0 20px rgba(255,30,70,.65),inset 0 0 22px rgba(255,30,70,.3);border-radius:50%;transform:translate(-50%,-50%) scale(.1);opacity:0; }
+.genesis-avances.dominio-activo { border-color:rgba(255,53,88,.86);background:linear-gradient(150deg,rgba(80,2,16,.78),rgba(17,2,14,.98) 68%);box-shadow:0 0 40px rgba(255,22,60,.28),inset 0 0 80px rgba(164,9,33,.2); }
+.genesis-avances.dominio-activo .genesis-dominio-vfx { opacity:1; }
+.genesis-avances.dominio-activo .genesis-dominio-vfx__core { animation:genesisDominioCore 10s ease-in-out both; }
+.genesis-avances.dominio-activo .genesis-dominio-vfx__runa { animation:genesisDominioRuna 3s ease-in-out infinite;animation-delay:var(--delay); }
+.genesis-avances.dominio-activo .genesis-dominio-vfx__pulse { animation:genesisDominioPulse 2.5s ease-out both;animation-delay:var(--delay); }
+.genesis-avances.dominio-activo .genesis-avances__hero { border-color:rgba(255,78,103,.85);box-shadow:0 0 20px rgba(255,22,62,.15),inset 0 0 30px rgba(205,10,43,.14); }
+.genesis-avances.dominio-activo .genesis-avances__item { box-shadow:inset 0 0 18px rgba(238,15,49,.14); }
+.genesis-dominio-control { position:relative;z-index:3;margin-top:1rem;padding:.85rem;border:1px solid rgba(241,76,99,.42);border-radius:11px;background:linear-gradient(120deg,rgba(81,9,22,.42),rgba(9,4,15,.7)); }
+.genesis-dominio-control__top { display:flex;justify-content:space-between;flex-wrap:wrap;gap:.35rem;margin-bottom:.58rem;font:600 .52rem 'Cinzel',serif;letter-spacing:.05em; }
+.genesis-dominio-control__tag { color:#ff8b9a; }
+.genesis-dominio-control__stats { color:#d8b4b8; }
+.genesis-dominio-btn { width:100%;min-height:43px;padding:.62rem .7rem;border:1px solid #ef6074;border-radius:8px;background:linear-gradient(100deg,#5d0a1e,#a51a35 53%,#5a0a20);color:#ffe5e5;font:700 .67rem 'Cinzel',serif;letter-spacing:.04em;box-shadow:0 0 14px rgba(245,23,62,.19);cursor:pointer;transition:filter .2s,transform .2s; }
+.genesis-dominio-btn:hover { filter:brightness(1.22);transform:translateY(-1px); }
+.genesis-dominio-btn:focus-visible { outline:2px solid #ffe8b0;outline-offset:3px; }
+.genesis-avances.dominio-activo .genesis-dominio-btn { background:linear-gradient(100deg,#5e0c25,#cf254d,#5e0c25);box-shadow:0 0 20px rgba(255,22,63,.35); }
+.genesis-dominio-control__feedback { display:flex;align-items:center;justify-content:space-between;gap:.4rem;margin-top:.55rem;color:#f0bcc4;font:italic .76rem 'IM Fell English',serif; }
+.genesis-dominio-control__feedback #genesis-dominio-tiempo { white-space:nowrap;font:700 .67rem 'Cinzel',serif;color:#ff99aa; }
+.genesis-dominio-control__track { width:100%;height:4px;margin-top:.45rem;border-radius:9px;overflow:hidden;background:rgba(255,255,255,.08); }
+#genesis-dominio-progress {display:block;width:0%;height:100%;background:linear-gradient(90deg,#ff94ab,#c21438);box-shadow:0 0 8px rgba(240,38,82,.6);transition:width .12s linear; }
+.genesis-dominio-control__note {display:block;margin-top:.45rem;color:#ae8b95;font:italic .68rem 'IM Fell English',serif; }
+@keyframes genesisDominioPulse { 0% {opacity:0;transform:translate(-50%,-50%) scale(.1);} 15%{opacity:.85} 70%{opacity:.3} 100%{opacity:0;transform:translate(-50%,-50%) scale(2.3);} }
+@keyframes genesisDominioRuna { 0%,100%{opacity:.12;transform:translateY(6px) rotate(-8deg)} 50%{opacity:.8;transform:translateY(-9px) rotate(7deg)} }
+@keyframes genesisDominioCore { 0%,100%{opacity:.07;filter:blur(3px)} 35%,70%{opacity:.2;filter:blur(0)} }
+
+/* 🦎 Quinto registro: la Bestia Origen, sin video inventado. */
+.genesis-avances__item[data-skill="lagarto"] { --skill-rgb:104,214,228;--skill-color:#b3f4f8;grid-column:1/-1; }
+.genesis-avances__item[data-skill="lagarto"] .flip-card__inner {min-height:205px;}
+.genesis-avances__item--origen .flip-card__front { justify-content:center; }
+.genesis-avances__item--origen .flip-card__front p { max-width:27rem; }
+.genesis-lagarto-back { padding:.2rem; }
+.genesis-lagarto-back__eyebrow { color:#9ae9ec;font:700 .55rem 'Cinzel',serif;letter-spacing:.13em; }
+.genesis-lagarto-back strong { color:#d4faff;font:700 .9rem 'Cinzel Decorative',serif; }
+.genesis-lagarto-back p { margin:.2rem 0 !important;text-align:center;max-width:25rem; }
+.genesis-lagarto-back__pending {color:#a9cfd0;border:1px dashed rgba(140,225,235,.4);border-radius:6px;padding:.25rem .5rem;text-align:center;font:italic .7rem 'IM Fell English',serif; }
+.genesis-lagarto-back .flip-card__btn--back {margin-top:.25rem;}
+@media(max-width:390px) { .genesis-avances__item[data-skill="lagarto"] .flip-card__inner{min-height:240px;} }
+@media(prefers-reduced-motion:reduce) {
+  .genesis-avances,.genesis-dominio-vfx,.genesis-dominio-btn,#genesis-dominio-progress {transition:none !important;}
+  .genesis-avances.dominio-activo .genesis-dominio-vfx__core,
+  .genesis-avances.dominio-activo .genesis-dominio-vfx__runa,
+  .genesis-avances.dominio-activo .genesis-dominio-vfx__pulse {animation:none !important;}
+  .genesis-avances.dominio-activo .genesis-dominio-vfx__core {opacity:.18;}
+}
 </style>
 </head>
 <body>
@@ -1849,23 +1989,60 @@
       <div class="genesis-avances__eyebrow"><span>🐾 Bestias Génesis · V11</span><span class="genesis-avances__status">En desarrollo</span></div>
       <h4 id="genesis-avances-titulo">La manada empieza a despertar</h4>
       <p class="genesis-avances__intro">Un vistazo a las criaturas y habilidades que están tomando forma en la próxima etapa del juego.</p>
+      <!-- 🩸 Dominio web: representación visual, no ejecuta la habilidad del juego -->
+      <div class="genesis-dominio-vfx" aria-hidden="true">
+        <div class="genesis-dominio-vfx__core">ᛟ</div>
+        <span class="genesis-dominio-vfx__runa" style="--x:9%;--y:14%;--delay:0s">ᚷ</span>
+        <span class="genesis-dominio-vfx__runa" style="--x:86%;--y:11%;--delay:.6s">ᛉ</span>
+        <span class="genesis-dominio-vfx__runa" style="--x:79%;--y:58%;--delay:1.1s">ᚨ</span>
+        <span class="genesis-dominio-vfx__runa" style="--x:15%;--y:77%;--delay:1.8s">ᛟ</span>
+        <span class="genesis-dominio-vfx__pulse" style="--delay:0s"></span>
+        <span class="genesis-dominio-vfx__pulse" style="--delay:2.5s"></span>
+        <span class="genesis-dominio-vfx__pulse" style="--delay:5s"></span>
+        <span class="genesis-dominio-vfx__pulse" style="--delay:7.5s"></span>
+      </div>
       <article class="genesis-avances__hero">
         <div class="genesis-avances__headline"><span class="genesis-avances__icon" aria-hidden="true">🐺</span><span class="genesis-avances__name">Lobo Alfa</span></div>
+        <div class="genesis-hero__insignia">✦ LÍDER DE MANADA <span>7 TÉCNICAS</span></div>
         <p>Un líder que convoca compañeros, desata a su manada y abre un dominio carmesí rodeado de energía.</p>
         <details>
           <summary>Descubrí sus técnicas</summary>
           <ul class="genesis-avances__abilities">
-            <li><strong>Compañeros del Alfa:</strong> tres clones con vida propia que siguen a su líder.</li>
-            <li><strong>Manada de Lobos:</strong> clones espectrales atacan a los enemigos cercanos.</li>
-            <li><strong>Esfera Carmesí:</strong> sacrifica la mitad de su vida actual para desatar una secuencia de ataques.</li>
-            <li><strong>Expansión de Dominio:</strong> un área carmesí con pulsos y efectos espectrales.</li>
+            <li><strong>Compañeros del Alfa:</strong> invoca tres lobos aliados que lo siguen durante 30 segundos.</li>
+            <li><strong>Manada de Lobos:</strong> tres clones espectrales atacan a los enemigos cercanos.</li>
+            <li><strong>Esfera Carmesí:</strong> sacrifica la mitad de su vida actual y desencadena ataques cinematográficos.</li>
+            <li><strong>Expansión de Dominio:</strong> área de radio 12, activa durante 10 segundos, con cuatro pulsos de daño.</li>
+            <li><strong>Guardia de los Lobos Boreales:</strong> cinco guardianes de escarcha protegen, hieren y congelan.</li>
+            <li><strong>Cacería del Invierno Eterno:</strong> 23 colmillos boreales surgen tras el aullido del Alfa.</li>
+            <li><strong>Juicio del Cielo Eléctrico:</strong> portales y una gigantesca esfera condenan a los objetivos cercanos.</li>
           </ul>
         </details>
+        <div class="genesis-dominio-control" aria-label="Recreación interactiva del dominio carmesí">
+          <div class="genesis-dominio-control__top">
+            <span class="genesis-dominio-control__tag">🩸 TÉCNICA ESPECIAL · NIVEL 15</span>
+            <span class="genesis-dominio-control__stats">10 S · 4 PULSOS · RADIO 12</span>
+          </div>
+          <button id="genesis-dominio-btn" class="genesis-dominio-btn" type="button" aria-pressed="false">ᛟ Activar expansión de dominio</button>
+          <div class="genesis-dominio-control__feedback">
+            <span id="genesis-dominio-estado" role="status">El dominio aguarda la orden del Alfa.</span>
+            <span id="genesis-dominio-tiempo" aria-hidden="true">10.0 s</span>
+          </div>
+          <div class="genesis-dominio-control__track" aria-hidden="true"><span id="genesis-dominio-progress"></span></div>
+          <small class="genesis-dominio-control__note">Simulación visual en la página, inspirada en la habilidad de Godot.</small>
+        </div>
       </article>
+      <!-- ✦ Aporte original: archivo de combate con cuatro demostraciones -->
+      <div class="genesis-archive" aria-label="Archivo de demostraciones">
+        <span class="genesis-archive__glyph" aria-hidden="true">✦</span>
+        <span class="genesis-archive__label">ARCHIVO DE COMBATE <small>Cuatro demostraciones y un archivo de la Bestia Origen</small></span>
+        <span class="genesis-archive__count">05 <small>FICHAS · 04 VIDEOS</small></span>
+      </div>
       <div class="genesis-avances__grid">
-        <article class="genesis-avances__item flip-card">
+        <article class="genesis-avances__item flip-card" data-skill="abeja">
           <div class="flip-card__inner">
             <div class="flip-card__front">
+              <div class="skill-front__meta"><span>PICADA · AGUIJÓN</span><span>#01</span></div>
+              <span class="skill-front__sigil" aria-hidden="true">🐝</span>
               <h5>🐝 Abeja Reina</h5>
               <p>Descenso rápido en picada y un aguijonazo que extiende su abdomen por un instante.</p>
               <button class="flip-card__btn" type="button">🎬 Ver video</button>
@@ -1874,62 +2051,106 @@
               <div class="flip-card__video-wrap">
                 <iframe data-src="https://www.youtube.com/embed/zemQpWMM4eE?rel=0&amp;playsinline=1" title="Abeja Reina — avance de Bestias Génesis" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
+              <button class="genesis-cinema__open" type="button" aria-label="Ver este video en modo cine">⛶ Ver en grande</button>
               <a class="flip-card__yt-link" href="https://youtu.be/zemQpWMM4eE?si=TOxdGYd1CBHgzD8A" target="_blank" rel="noopener noreferrer">↗ Ver en YouTube</a>
               <button class="flip-card__btn flip-card__btn--back" type="button">↩ Volver</button>
             </div>
           </div>
         </article>
-        <article class="genesis-avances__item flip-card">
+        <article class="genesis-avances__item flip-card" data-skill="escarabajo">
           <div class="flip-card__inner">
             <div class="flip-card__front">
-              <h5>🪲 Escarabajo</h5>
+              <div class="skill-front__meta"><span>QUITINA · ARMADURA</span><span>#02</span></div>
+              <span class="skill-front__sigil" aria-hidden="true">🪲</span>
+              <h5>🪲 Escarabajo Bombardero</h5>
               <p>Cuernos de quitina, placas renovadas y cámaras químicas acompañan su armadura.</p>
               <button class="flip-card__btn" type="button">🎬 Ver video</button>
             </div>
             <div class="flip-card__back">
               <div class="flip-card__video-wrap">
-                <iframe data-src="https://www.youtube.com/embed/qrXZJ1dfpiU?rel=0&amp;playsinline=1" title="Escarabajo — avance de Bestias Génesis" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe data-src="https://www.youtube.com/embed/qrXZJ1dfpiU?rel=0&amp;playsinline=1" title="Escarabajo Bombardero — avance de Bestias Génesis" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
+              <button class="genesis-cinema__open" type="button" aria-label="Ver este video en modo cine">⛶ Ver en grande</button>
               <a class="flip-card__yt-link" href="https://youtu.be/qrXZJ1dfpiU?si=EyWIwuGajdrbvdyy" target="_blank" rel="noopener noreferrer">↗ Ver en YouTube</a>
               <button class="flip-card__btn flip-card__btn--back" type="button">↩ Volver</button>
             </div>
           </div>
         </article>
-        <article class="genesis-avances__item flip-card">
+        <article class="genesis-avances__item flip-card" data-skill="dragon">
           <div class="flip-card__inner">
             <div class="flip-card__front">
-              <h5>⚡ Rayo del Dragón</h5>
-              <p>Una carga eléctrica sonora acompaña la concentración antes de liberar el ataque.</p>
+              <div class="skill-front__meta"><span>RAYO ANCESTRAL · ELECTRICIDAD</span><span>#03</span></div>
+              <span class="skill-front__sigil" aria-hidden="true">🐉</span>
+              <h5>🐉 Dragón Primordial</h5>
+              <p>El Dragón Primordial concentra su poder entre descargas eléctricas antes de liberar su rayo.</p>
               <button class="flip-card__btn" type="button">🎬 Ver video</button>
             </div>
             <div class="flip-card__back">
               <div class="flip-card__video-wrap">
-                <iframe data-src="https://www.youtube.com/embed/6W_AoCWjO4E?rel=0&amp;playsinline=1" title="Rayo del Dragón — avance de Bestias Génesis" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe data-src="https://www.youtube.com/embed/6W_AoCWjO4E?rel=0&amp;playsinline=1" title="Dragón Primordial — Rayo Ancestral en Bestias Génesis" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
+              <button class="genesis-cinema__open" type="button" aria-label="Ver este video en modo cine">⛶ Ver en grande</button>
               <a class="flip-card__yt-link" href="https://youtu.be/6W_AoCWjO4E?si=6Z0YwWnErywdJT-o" target="_blank" rel="noopener noreferrer">↗ Ver en YouTube</a>
               <button class="flip-card__btn flip-card__btn--back" type="button">↩ Volver</button>
             </div>
           </div>
         </article>
-        <article class="genesis-avances__item flip-card">
+        <article class="genesis-avances__item flip-card" data-skill="pangolin">
           <div class="flip-card__inner">
             <div class="flip-card__front">
-              <h5>🦔 Pangolín</h5>
+              <div class="skill-front__meta"><span>DEFENSA · EMBESTIDA</span><span>#04</span></div>
+              <span class="skill-front__sigil" aria-hidden="true">🦔</span>
+              <h5>🦔 Pangolín de Obsidiana</h5>
               <p>Su Rueda de Obsidiana transforma la defensa en una embestida rodante.</p>
               <button class="flip-card__btn" type="button">🎬 Ver video</button>
             </div>
             <div class="flip-card__back">
               <div class="flip-card__video-wrap">
-                <iframe data-src="https://www.youtube.com/embed/BwGE0I-HkVY?rel=0&amp;playsinline=1" title="Pangolín — avance de Bestias Génesis" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe data-src="https://www.youtube.com/embed/BwGE0I-HkVY?rel=0&amp;playsinline=1" title="Pangolín de Obsidiana — avance de Bestias Génesis" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
+              <button class="genesis-cinema__open" type="button" aria-label="Ver este video en modo cine">⛶ Ver en grande</button>
               <a class="flip-card__yt-link" href="https://youtu.be/BwGE0I-HkVY?si=mKEvcqMWMH3d7Byt" target="_blank" rel="noopener noreferrer">↗ Ver en YouTube</a>
               <button class="flip-card__btn flip-card__btn--back" type="button">↩ Volver</button>
             </div>
           </div>
         </article>
+<!-- 🦎 Lagarto: quinto registro (sin URL de YouTube por ahora) -->
+<article class="genesis-avances__item flip-card genesis-avances__item--origen" data-skill="lagarto">
+  <div class="flip-card__inner">
+    <div class="flip-card__front">
+      <div class="skill-front__meta"><span>BESTIA ORIGEN · HIELO ANCESTRAL</span><span>#05</span></div>
+      <span class="skill-front__sigil" aria-hidden="true">🦎</span>
+      <h5>🦎 Lagarto</h5>
+      <p>El punto de partida de Bestias Génesis: rápido, sigiloso y experto en ataques veloces.</p>
+      <button class="flip-card__btn" type="button">📜 Descubrir ficha</button>
+    </div>
+    <div class="flip-card__back genesis-lagarto-back">
+      <span class="genesis-lagarto-back__eyebrow">⚖️ BESTIA ORIGEN</span>
+      <strong>🦎 Lagarto</strong>
+      <p>Velocidad, sigilo y dos técnicas de Hielo Ancestral forman parte de su repertorio.</p>
+      <span class="genesis-lagarto-back__pending">🎬 Video de demostración pendiente</span>
+      <button class="flip-card__btn flip-card__btn--back" type="button">↩ Volver</button>
+    </div>
+  </div>
+</article>
       </div>
       <p class="genesis-avances__note">Avances en desarrollo. La disponibilidad se anunciará por los canales oficiales.</p>
     </section>
+
+    <!-- 🎥 Sala de proyección: se carga el video solo al abrirla -->
+    <dialog class="genesis-cinema" id="genesis-cinema" aria-labelledby="genesis-cinema-title">
+      <div class="genesis-cinema__panel">
+        <div class="genesis-cinema__header">
+          <div><span class="genesis-cinema__eyebrow">BESTIAS GÉNESIS • ARCHIVO DE COMBATE</span>
+            <h3 id="genesis-cinema-title">Demostración</h3>
+          </div>
+          <button type="button" class="genesis-cinema__close" aria-label="Cerrar reproductor">✕</button>
+        </div>
+        <div class="genesis-cinema__screen"><iframe title="Video de Bestias Génesis en modo cine" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+        <div class="genesis-cinema__footer"><span>✦ Una técnica. Un destino.</span><a href="#" target="_blank" rel="noopener noreferrer">↗ Abrir en YouTube</a></div>
+      </div>
+    </dialog>
+
     <!-- 📱 QR — escaneá y jugá desde el celular -->
     <div class="qr-card">
       <img class="qr-img" loading="lazy"
@@ -2553,18 +2774,138 @@ document.head.appendChild(style);
 /* ══════════════════════════════════════════
    🎬 TARJETAS QUE SE DAN VUELTA — Ver Reverso / Volver
    ══════════════════════════════════════════ */
-document.querySelectorAll('.flip-card__btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const card = btn.closest('.flip-card');
-    if (!card) return;
-    const flipped = card.classList.toggle('is-flipped');
-    const video = card.querySelector('.flip-card__video-wrap iframe[data-src]');
-    if (video) {
-      if (flipped) video.src = video.dataset.src;
-      else video.removeAttribute('src'); // Detiene el video al volver al frente.
-    }
+// Solo puede reproducirse un avance a la vez: evita que varios videos sigan sonando.
+const genesisCards = [...document.querySelectorAll('.genesis-avances .flip-card')];
+function cerrarTarjetaGenesis(card) {
+  card.classList.remove('is-flipped');
+  const frame = card.querySelector('.flip-card__video-wrap iframe');
+  if (frame) frame.removeAttribute('src');
+  const front = card.querySelector('.flip-card__front');
+  const back = card.querySelector('.flip-card__back');
+  if (front) front.inert = false;
+  if (back) back.inert = true;
+}
+genesisCards.forEach(card => {
+  const front = card.querySelector('.flip-card__front');
+  const back = card.querySelector('.flip-card__back');
+  if (back) back.inert = true;
+  const buttonFront = front && front.querySelector('.flip-card__btn');
+  const buttonBack = back && back.querySelector('.flip-card__btn--back');
+  if (buttonFront) buttonFront.addEventListener('click', () => {
+    genesisCards.forEach(other => { if (other !== card) cerrarTarjetaGenesis(other); });
+    card.classList.add('is-flipped');
+    if (front) front.inert = true;
+    if (back) back.inert = false;
+    const frame = card.querySelector('.flip-card__video-wrap iframe[data-src]');
+    if (frame) frame.src = frame.dataset.src;
+  });
+  if (buttonBack) buttonBack.addEventListener('click', () => {
+    cerrarTarjetaGenesis(card);
+    if (buttonFront) buttonFront.focus({ preventScroll: true });
   });
 });
+
+const genesisCinema = document.getElementById('genesis-cinema');
+const cinemaFrame = genesisCinema && genesisCinema.querySelector('.genesis-cinema__screen iframe');
+const cinemaTitle = genesisCinema && genesisCinema.querySelector('#genesis-cinema-title');
+const cinemaLink = genesisCinema && genesisCinema.querySelector('.genesis-cinema__footer a');
+let cinemaOrigin = null;
+function detenerModoCine() {
+  if (cinemaFrame) cinemaFrame.removeAttribute('src');
+  if (cinemaOrigin) {
+    const frontButton = cinemaOrigin.querySelector('.flip-card__front .flip-card__btn');
+    cerrarTarjetaGenesis(cinemaOrigin);
+    if (frontButton) frontButton.focus({ preventScroll: true });
+    cinemaOrigin = null;
+  }
+}
+if (genesisCinema) {
+  genesisCinema.addEventListener('close', detenerModoCine);
+  genesisCinema.querySelector('.genesis-cinema__close').addEventListener('click', () => genesisCinema.close());
+  genesisCinema.addEventListener('click', event => { if (event.target === genesisCinema) genesisCinema.close(); });
+  document.querySelectorAll('.genesis-cinema__open').forEach(button => {
+    button.addEventListener('click', () => {
+      const card = button.closest('.flip-card');
+      if (!card) return;
+      const frame = card.querySelector('.flip-card__video-wrap iframe[data-src]');
+      const ytLink = card.querySelector('.flip-card__yt-link');
+      if (!frame || !ytLink) return;
+      // Si el navegador no soporta <dialog>, el enlace oficial sigue disponible.
+      if (typeof genesisCinema.showModal !== 'function') {
+        window.open(ytLink.href, '_blank', 'noopener,noreferrer');
+        return;
+      }
+      genesisCards.forEach(other => { if (other !== card) cerrarTarjetaGenesis(other); });
+      cinemaOrigin = card;
+      frame.removeAttribute('src');
+      cinemaTitle.textContent = card.querySelector('h5').textContent.trim();
+      cinemaLink.href = ytLink.href;
+      cinemaFrame.src = frame.dataset.src;
+      genesisCinema.showModal();
+    });
+  });
+}
+
+
+/* ═══════════════════════════════════════════════════
+   🩸 DOMINIO DEL LOBO ALFA — efecto visual de 10 segundos.
+   Cuatro pulsos para representar la habilidad del script Godot.
+   No modifica el juego ni reproduce sonidos automáticamente.
+   ═══════════════════════════════════════════════════ */
+(() => {
+  const region = document.querySelector('.genesis-avances');
+  const button = document.getElementById('genesis-dominio-btn');
+  const status = document.getElementById('genesis-dominio-estado');
+  const time = document.getElementById('genesis-dominio-tiempo');
+  const bar = document.getElementById('genesis-dominio-progress');
+  if (!region || !button || !status || !time || !bar) return;
+  const DURATION = 10000;
+  const PULSES = 4;
+  let interval = null, started = 0, lastPulse = 0;
+  function stop(completed) {
+    if (interval !== null) clearInterval(interval);
+    interval = null;
+    region.classList.remove('dominio-activo');
+    button.setAttribute('aria-pressed', 'false');
+    button.textContent = 'ᛟ Activar expansión de dominio';
+    status.textContent = completed ? 'El dominio se ha disipado. El Alfa aguarda.' : 'Dominio cancelado. Listo para invocarse otra vez.';
+    time.textContent = '10.0 s';
+    bar.style.width = '0%';
+    lastPulse = 0;
+  }
+  function tick() {
+    if (interval === null) return;
+    const elapsed = Math.min(DURATION, performance.now() - started);
+    if (elapsed >= DURATION) { stop(true); return; }
+    const pulse = Math.min(PULSES, Math.floor(elapsed / (DURATION / PULSES)) + 1);
+    if (pulse !== lastPulse) {
+      lastPulse = pulse;
+      status.textContent = `Pulso carmesí ${pulse} de ${PULSES} · El territorio del Alfa despierta.`;
+    }
+    time.textContent = `${((DURATION - elapsed) / 1000).toFixed(1)} s`;
+    bar.style.width = `${elapsed / DURATION * 100}%`;
+  }
+  button.addEventListener('click', () => {
+    if (interval !== null) { stop(false); return; }
+    // Reinsertar la capa fuerza el reinicio de sus cuatro animaciones CSS.
+    const overlay = region.querySelector('.genesis-dominio-vfx');
+    if (overlay) { overlay.style.animation = 'none'; void overlay.offsetWidth; overlay.style.animation = ''; }
+    region.classList.remove('dominio-activo');
+    void region.offsetWidth;
+    region.classList.add('dominio-activo');
+    button.setAttribute('aria-pressed', 'true');
+    button.textContent = '✕ Disipar dominio';
+    status.textContent = 'Expansión de Dominio activada.';
+    started = performance.now();
+    lastPulse = 0;
+    interval = window.setInterval(tick, 100);
+    tick();
+  });
+  // Al ocultar la pestaña se cancela la animación; no consume recursos en segundo plano.
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden && interval !== null) stop(false);
+  });
+})();
 
 /* ══════════════════════════════════════════
    🌧️ LLUVIA
