@@ -1683,6 +1683,80 @@
   .genesis-avances.dominio-activo .genesis-dominio-vfx__pulse {animation:none !important;}
   .genesis-avances.dominio-activo .genesis-dominio-vfx__core {opacity:.18;}
 }
+
+/* ═══════════════════════════════════════════════════════
+   ✦ SANTUARIO DE INVOCACIÓN — experiencia web original
+   No altera el juego ni recoge datos del visitante.
+   ═══════════════════════════════════════════════════════ */
+.genesis-santuario {
+  --ritual-rgb:255,170,70;
+  position:relative;isolation:isolate;overflow:hidden;
+  margin:1.18rem 0 .8rem;padding:1.3rem .95rem 1.15rem;
+  border:1px solid rgba(var(--ritual-rgb),.38);border-radius:14px;
+  background:radial-gradient(ellipse at 50% 34%,rgba(var(--ritual-rgb),.13),transparent 55%),
+             linear-gradient(160deg,rgba(28,11,31,.94),rgba(5,4,13,.97));
+  box-shadow:0 0 28px rgba(var(--ritual-rgb),.08), inset 0 1px rgba(255,255,255,.07);
+  text-align:center;transition:border-color .45s,box-shadow .45s,background .45s;
+}
+.genesis-santuario::before {content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:repeating-linear-gradient(125deg,transparent 0 34px,rgba(255,255,255,.015) 35px 36px,transparent 37px 72px);}
+.genesis-santuario__eyebrow {display:block;color:rgb(var(--ritual-rgb));font:700 .54rem/1.5 'Cinzel',serif;letter-spacing:.2em;text-transform:uppercase;}
+.genesis-santuario__title {margin:.25rem 0 .3rem;color:#ffe4b5;font:900 clamp(.95rem,3.8vw,1.15rem)/1.35 'Cinzel Decorative',serif;
+  text-shadow:0 0 18px rgba(var(--ritual-rgb),.22);}
+.genesis-santuario__intro {max-width:340px;margin:0 auto;color:#c8b39b;font:italic .75rem/1.5 'IM Fell English',serif;}
+.genesis-santuario__altar {width:182px;height:182px;margin: .65rem auto .25rem;position:relative;display:grid;place-items:center;}
+.genesis-santuario__halo {position:absolute;inset:8px;border:1px solid rgba(var(--ritual-rgb),.56);border-radius:50%;
+  box-shadow:0 0 16px rgba(var(--ritual-rgb),.21),inset 0 0 22px rgba(var(--ritual-rgb),.12);
+  animation:genesisRitualSpin 25s linear infinite;}
+.genesis-santuario__halo::before {content:'ᛟ ᚷ ᛉ ᚨ ᚹ ᛟ';position:absolute;inset:-6px;border-radius:50%;
+  display:flex;align-items:flex-start;justify-content:center;padding-top:2px;white-space:nowrap;
+  color:rgba(var(--ritual-rgb),.95);font:700 .68rem 'Cinzel',serif;letter-spacing: .52em;}
+.genesis-santuario__halo--inner {inset:29px;border-style:dashed;border-color:rgba(var(--ritual-rgb),.38);
+  animation-direction:reverse;animation-duration:15s;}
+.genesis-santuario__halo--inner::before {content:'';}
+.genesis-santuario__orb {width:90px;height:90px;display:grid;place-items:center;position:relative;border-radius:50%;
+  background:radial-gradient(circle at 36% 26%,rgba(255,255,255,.19),transparent 20%),
+             radial-gradient(circle,rgba(var(--ritual-rgb),.43),rgba(var(--ritual-rgb),.09) 58%,rgba(0,0,0,.3) 74%);
+  box-shadow:0 0 40px rgba(var(--ritual-rgb),.26),inset 0 0 20px rgba(var(--ritual-rgb),.22);
+  animation:genesisRitualBreath 3.5s ease-in-out infinite;}
+.genesis-santuario__sigilo {font-size:2.5rem;filter:drop-shadow(0 0 10px rgba(var(--ritual-rgb),.6));line-height:1;}
+.genesis-santuario__spark {position:absolute;width:5px;height:5px;border-radius:50%;background:rgb(var(--ritual-rgb));
+  box-shadow:0 0 9px rgba(var(--ritual-rgb),.8);left:50%;top:50%;opacity:0;pointer-events:none;}
+.genesis-santuario__spark:nth-last-child(1) {--angle:200deg;--distance:86px;}
+.genesis-santuario__spark:nth-last-child(2) {--angle:40deg;--distance:77px;}
+.genesis-santuario__spark:nth-last-child(3) {--angle:300deg;--distance:73px;}
+.genesis-santuario__spark:nth-last-child(4) {--angle:110deg;--distance:88px;}
+.genesis-santuario.is-invocando .genesis-santuario__halo {animation-duration:1.4s;}
+.genesis-santuario.is-invocando .genesis-santuario__orb {animation:genesisRitualFlash .7s ease both;}
+.genesis-santuario.is-invocando .genesis-santuario__spark {animation:genesisRitualSparks .72s ease-out both;}
+.genesis-santuario.is-revelado {border-color:rgba(var(--ritual-rgb),.74);box-shadow:0 0 35px rgba(var(--ritual-rgb),.17),inset 0 0 15px rgba(var(--ritual-rgb),.08);}
+.genesis-santuario__resultado {min-height:101px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.22rem;}
+.genesis-santuario__nombre {color:#fff2d4;font:900 clamp(.85rem,3.8vw,1.03rem)/1.4 'Cinzel Decorative',serif;}
+.genesis-santuario__afinidad {color:rgb(var(--ritual-rgb));font:700 .55rem/1.5 'Cinzel',serif;letter-spacing:.12em;text-transform:uppercase;}
+.genesis-santuario__descripcion {max-width:335px;min-height:2.5em;color:#d6bea6;font:italic .72rem/1.5 'IM Fell English',serif;}
+.genesis-santuario__actions {display:flex;flex-wrap:wrap;justify-content:center;gap:.55rem;margin:.6rem 0 .65rem;}
+.genesis-santuario__btn {cursor:pointer;border:1px solid rgba(var(--ritual-rgb),.6);border-radius:8px;
+  background:linear-gradient(130deg,rgba(var(--ritual-rgb),.24),rgba(var(--ritual-rgb),.065));
+  color:#ffecd3;padding:.67rem .9rem;font:700 .61rem/1.3 'Cinzel',serif;letter-spacing:.04em;
+  transition:transform .25s,box-shadow .25s,border-color .25s;}
+.genesis-santuario__btn:hover:not(:disabled) {transform:translateY(-2px);box-shadow:0 0 20px rgba(var(--ritual-rgb),.26);}
+.genesis-santuario__btn:focus-visible {outline:2px solid #fff0b7;outline-offset:3px;}
+.genesis-santuario__btn:disabled {opacity:.55;cursor:progress;}
+.genesis-santuario__btn--secundario {background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.25);}
+.genesis-santuario__btn[hidden] {display:none!important;}
+.genesis-santuario__disclaimer {display:block;color:#9e8b7d;font:italic .62rem/1.45 'IM Fell English',serif;}
+.genesis-summoned {animation:genesisSummonedFocus 1.6s ease-out 1;}
+@keyframes genesisRitualSpin {to {transform:rotate(360deg);}}
+@keyframes genesisRitualBreath {0%,100% {transform:scale(.96);}50% {transform:scale(1.07);}}
+@keyframes genesisRitualFlash {0% {transform:scale(.83);filter:brightness(1);}50% {transform:scale(1.35);filter:brightness(2.4);}100% {transform:scale(1);filter:brightness(1.1);}}
+@keyframes genesisRitualSparks {0% {opacity:1;transform:rotate(var(--angle)) translateX(8px) scale(.5);}70% {opacity:.95;}100% {opacity:0;transform:rotate(var(--angle)) translateX(var(--distance)) scale(1.3);}}
+@keyframes genesisSummonedFocus {0%,100% {filter:none;}40% {filter:drop-shadow(0 0 16px rgba(255,179,77,.67));}}
+@media(max-width:370px){.genesis-santuario{padding:1.05rem .65rem}.genesis-santuario__actions{flex-direction:column}.genesis-santuario__btn{width:100%;}}
+@media(prefers-reduced-motion:reduce){
+  .genesis-santuario__halo,.genesis-santuario__orb,.genesis-santuario.is-invocando .genesis-santuario__orb,
+  .genesis-santuario.is-invocando .genesis-santuario__spark,.genesis-summoned{animation:none!important;}
+}
+
 </style>
 </head>
 <body>
@@ -2134,6 +2208,31 @@
   </div>
 </article>
       </div>
+
+      <!-- ✦ NUEVO: Santuario de Invocación. Miniexperiencia web; no es una mecánica del juego. -->
+      <section class="genesis-santuario" id="genesis-santuario" aria-labelledby="genesis-santuario-titulo">
+        <span class="genesis-santuario__eyebrow">ᛟ SANTUARIO ANCESTRAL ᛟ</span>
+        <h5 class="genesis-santuario__title" id="genesis-santuario-titulo">El llamado de las Bestias</h5>
+        <p class="genesis-santuario__intro">Seis espíritus. Un destino. Invoca una bestia y descubre el registro que el altar ha elegido para ti.</p>
+        <div class="genesis-santuario__altar" aria-hidden="true">
+          <div class="genesis-santuario__halo"></div>
+          <div class="genesis-santuario__halo genesis-santuario__halo--inner"></div>
+          <div class="genesis-santuario__orb"><span class="genesis-santuario__sigilo" id="genesis-santuario-sigilo">ᛟ</span></div>
+          <i class="genesis-santuario__spark"></i><i class="genesis-santuario__spark"></i>
+          <i class="genesis-santuario__spark"></i><i class="genesis-santuario__spark"></i>
+        </div>
+        <div class="genesis-santuario__resultado" role="status" aria-live="polite" aria-atomic="true">
+          <strong class="genesis-santuario__nombre" id="genesis-santuario-nombre">El altar aguarda tu llamado</strong>
+          <span class="genesis-santuario__afinidad" id="genesis-santuario-afinidad">✦ 6 ESPÍRITUS POR DESCUBRIR ✦</span>
+          <p class="genesis-santuario__descripcion" id="genesis-santuario-descripcion">Pulsa «Invocar bestia» para comenzar el ritual.</p>
+        </div>
+        <div class="genesis-santuario__actions">
+          <button class="genesis-santuario__btn" type="button" id="genesis-santuario-invocar">✦ Invocar bestia</button>
+          <button class="genesis-santuario__btn genesis-santuario__btn--secundario" type="button" id="genesis-santuario-ver" hidden>↗ Ver su registro</button>
+        </div>
+        <small class="genesis-santuario__disclaimer">Experiencia interactiva de esta web. No desbloquea criaturas ni modifica tu partida.</small>
+      </section>
+
       <p class="genesis-avances__note">Avances en desarrollo. La disponibilidad se anunciará por los canales oficiales.</p>
     </section>
 
@@ -2165,7 +2264,7 @@
     <!-- 🎄 COUNTDOWN — próxima actualización de Bestias Génesis -->
     <div class="countdown-card" id="countdown-actualizacion" data-target="2026-12-25T00:00:00-05:00">
       <span class="countdown-tag">PRÓXIMA ACTUALIZACIÓN</span>
-      <span class="countdown-title">🎄 Bestias Génesis — Actualización 10</span>
+      <span class="countdown-title">🎄 Bestias Génesis — Próxima actualización</span>
       <div class="countdown-nums">
         <div class="countdown-unit"><span class="countdown-num" data-unit="d">00</span><span class="countdown-label">días</span></div>
         <div class="countdown-unit"><span class="countdown-num" data-unit="h">00</span><span class="countdown-label">hs</span></div>
@@ -2904,6 +3003,77 @@ if (genesisCinema) {
   // Al ocultar la pestaña se cancela la animación; no consume recursos en segundo plano.
   document.addEventListener('visibilitychange', () => {
     if (document.hidden && interval !== null) stop(false);
+  });
+})();
+
+
+/* ══════════════════════════════════════════════
+   ✦ SANTUARIO DE INVOCACIÓN — mini experiencia visual
+   Fichas y habilidades existentes, sin inventar estadísticas.
+   ══════════════════════════════════════════════ */
+(() => {
+  const altar = document.getElementById('genesis-santuario');
+  const invokeButton = document.getElementById('genesis-santuario-invocar');
+  const viewButton = document.getElementById('genesis-santuario-ver');
+  const symbol = document.getElementById('genesis-santuario-sigilo');
+  const name = document.getElementById('genesis-santuario-nombre');
+  const affinity = document.getElementById('genesis-santuario-afinidad');
+  const description = document.getElementById('genesis-santuario-descripcion');
+  if (!altar || !invokeButton || !viewButton || !symbol || !name || !affinity || !description) return;
+
+  // Los seis registros están enlazados a elementos reales en el archivo de combate.
+  const spirits = [
+    {name:'🐺 Lobo Alfa', symbol:'🐺', affinity:'DOMINIO CARMESÍ · MANADA',
+     description:'El líder de la manada despierta un territorio carmesí y convoca a sus lobos.', rgb:'236,65,94', target:'.genesis-avances__hero'},
+    {name:'🐝 Abeja Reina', symbol:'🐝', affinity:'PICADA · AGUIJÓN',
+     description:'Un descenso veloz y un aguijonazo sorprenden a su objetivo.',rgb:'255,194,61',target:'[data-skill="abeja"]'},
+    {name:'🪲 Escarabajo Bombardero',symbol:'🪲',affinity:'QUITINA · ARMADURA',
+     description:'Cuernos de quitina y cámaras químicas refuerzan su armadura.',rgb:'83,211,149',target:'[data-skill="escarabajo"]'},
+    {name:'🐉 Dragón Primordial',symbol:'🐉',affinity:'ELECTRICIDAD · RAYO ANCESTRAL',
+     description:'El poder eléctrico se concentra antes de liberar el Rayo Ancestral.',rgb:'120,175,255',target:'[data-skill="dragon"]'},
+    {name:'🦔 Pangolín de Obsidiana',symbol:'🦔',affinity:'DEFENSA · RUEDA DE OBSIDIANA',
+     description:'Su defensa se transforma en una embestida rodante.',rgb:'190,132,255',target:'[data-skill="pangolin"]'},
+    {name:'🦎 Lagarto',symbol:'🦎',affinity:'BESTIA ORIGEN · HIELO ANCESTRAL',
+     description:'Velocidad, sigilo y Hielo Ancestral marcan el origen del viaje.',rgb:'93,217,194',target:'[data-skill="lagarto"]'}
+  ];
+  let previous = -1;
+  let chosen = null;
+  invokeButton.addEventListener('click', () => {
+    const nextCandidates = spirits.map((_,i)=>i).filter(i => i!==previous);
+    const index = nextCandidates[Math.floor(Math.random()*nextCandidates.length)];
+    previous = index;
+    chosen = spirits[index];
+    altar.classList.remove('is-revelado','is-invocando');
+    void altar.offsetWidth; // reinicia la animación tras cada invocación
+    altar.style.setProperty('--ritual-rgb',chosen.rgb);
+    altar.classList.add('is-invocando');
+    symbol.textContent = 'ᛟ';
+    name.textContent = 'El destino está despertando…';
+    affinity.textContent = '✦ INVOCACIÓN EN CURSO ✦';
+    description.textContent = 'Las runas del santuario responden a tu llamado.';
+    invokeButton.disabled = true;
+    viewButton.hidden = true;
+    setTimeout(() => {
+      symbol.textContent = chosen.symbol;
+      name.textContent = chosen.name;
+      affinity.textContent = chosen.affinity;
+      description.textContent = chosen.description;
+      altar.classList.remove('is-invocando');
+      altar.classList.add('is-revelado');
+      invokeButton.disabled = false;
+      invokeButton.textContent = '✦ Invocar otra bestia';
+      viewButton.hidden = false;
+    }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 100 : 730);
+  });
+  viewButton.addEventListener('click', () => {
+    if (!chosen) return;
+    const target = document.querySelector(chosen.target);
+    if (!target) return;
+    target.scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant':'smooth',block:'center'});
+    target.classList.remove('genesis-summoned');
+    void target.offsetWidth;
+    target.classList.add('genesis-summoned');
+    window.setTimeout(()=>target.classList.remove('genesis-summoned'),1700);
   });
 })();
 
