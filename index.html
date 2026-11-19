@@ -8,14 +8,14 @@
 
 <!-- 🔗 OPEN GRAPH / TWITTER CARD — vista previa linda al compartir el link -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://dragonprimordial12-netizen.github.io/Dragon_Primordial/">
+<meta property="og:url" content="https://dragonprimordial12-netizen.github.io/DR/">
 <meta property="og:title" content="🐲 Dragón Primordial 🔥">
 <meta property="og:description" content="Bestias y Monstruos en Roblox · Modelos y scripts a la venta · Todo el universo Dragón Primordial en un solo lugar.">
-<meta property="og:image" content="https://dragonprimordial12-netizen.github.io/Dragon_Primordial/og-image.jpg">
+<meta property="og:image" content="https://dragonprimordial12-netizen.github.io/DR/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="🐲 Dragón Primordial 🔥">
 <meta name="twitter:description" content="Bestias y Monstruos en Roblox · Modelos y scripts a la venta · Todo el universo Dragón Primordial en un solo lugar.">
-<meta name="twitter:image" content="https://dragonprimordial12-netizen.github.io/Dragon_Primordial/og-image.jpg">
+<meta name="twitter:image" content="https://dragonprimordial12-netizen.github.io/DR/og-image.jpg">
 
 <!-- 🐲 FAVICON -->
 <link rel="icon" type="image/png" href="favicon.png">
@@ -1757,6 +1757,57 @@
   .genesis-santuario.is-invocando .genesis-santuario__spark,.genesis-summoned{animation:none!important;}
 }
 
+/* ═══════════════════════════════════════════════════
+   🖼️ GALERÍA DE CAPTURAS — carrusel responsive
+   ═══════════════════════════════════════════════════ */
+.genesis-avances__item[data-skill="lagarto"] { --skill-rgb:93,217,194; --skill-color:#8debdc; }
+.genesis-avances__item[data-skill="lobo"] { --skill-rgb:236,65,94; --skill-color:#ff7181; }
+.genesis-avances__item[data-skill="lagarto"] .flip-card__inner,
+.genesis-avances__item[data-skill="lobo"] .flip-card__inner { min-height:225px; }
+.genesis-gallery {
+  position:relative; margin:1.15rem 0 .85rem; padding:1rem;
+  border:1px solid rgba(255,190,105,.25); border-radius:14px;
+  background:linear-gradient(145deg,rgba(25,13,23,.92),rgba(6,5,14,.96));
+  box-shadow:inset 0 1px rgba(255,255,255,.045),0 8px 24px rgba(0,0,0,.16);
+}
+.genesis-gallery__header { display:flex; align-items:flex-end; justify-content:space-between; gap:.8rem; margin-bottom:.8rem; }
+.genesis-gallery__eyebrow { color:#d9a96d; font:700 .52rem 'Cinzel',serif; letter-spacing:.16em; }
+.genesis-gallery__heading h5 { margin:.3rem 0 .2rem; color:#ffe2b0; font:700 1rem 'Cinzel Decorative',serif; }
+.genesis-gallery__heading p { margin:0; color:#c7b39d; font:italic .72rem/1.45 'IM Fell English',serif; }
+.genesis-gallery__controls { display:flex; flex:0 0 auto; gap:.4rem; }
+.genesis-gallery__controls button {
+  width:34px;height:34px;border:1px solid rgba(255,190,105,.38);border-radius:50%;
+  background:rgba(255,150,55,.09);color:#ffe2b0;font-size:1.35rem;line-height:1;cursor:pointer;
+  transition:background .2s,border-color .2s,transform .2s;
+}
+.genesis-gallery__controls button:hover:not(:disabled) { background:rgba(255,150,55,.2);border-color:#e9b46f;transform:translateY(-1px); }
+.genesis-gallery__controls button:focus-visible { outline:2px solid #ffe2b0;outline-offset:3px; }
+.genesis-gallery__controls button:disabled { opacity:.35;cursor:default; }
+.genesis-gallery__viewport {
+  display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,32%);
+  gap:.7rem;overflow-x:auto;overscroll-behavior-inline:contain;
+  padding:.15rem .1rem .7rem;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:thin;scrollbar-color:rgba(218,166,103,.55) rgba(255,255,255,.05);
+}
+.genesis-gallery__slide {
+  position:relative;min-width:0;margin:0;overflow:hidden;scroll-snap-align:start;
+  border:1px solid rgba(255,190,105,.2);border-radius:10px;
+  background:rgba(0,0,0,.38);transition:border-color .25s,transform .25s,box-shadow .25s;
+}
+.genesis-gallery__slide:hover { transform:translateY(-2px);border-color:rgba(255,190,105,.65);box-shadow:0 8px 20px rgba(0,0,0,.24); }
+.genesis-gallery__slide img { display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:#08070d; }
+.genesis-gallery__slide figcaption { padding:.55rem .65rem;color:#f1d7b1;font:600 .61rem 'Cinzel',serif; }
+.genesis-gallery__hint { margin:.45rem 0 0;color:#9e8b7d;text-align:center;font:italic .65rem 'IM Fell English',serif; }
+@media(max-width:620px) {
+  .genesis-gallery { padding:.8rem; }
+  .genesis-gallery__header { align-items:center; }
+  .genesis-gallery__viewport { grid-auto-columns:minmax(78%,1fr); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .genesis-gallery__viewport { scroll-behavior:auto; }
+  .genesis-gallery__slide,.genesis-gallery__controls button { transition:none; }
+}
+
 </style>
 </head>
 <body>
@@ -2188,25 +2239,47 @@
             </div>
           </div>
         </article>
-<!-- 🦎 Lagarto: quinto registro (sin URL de YouTube por ahora) -->
-<article class="genesis-avances__item flip-card genesis-avances__item--origen" data-skill="lagarto">
-  <div class="flip-card__inner">
-    <div class="flip-card__front">
-      <div class="skill-front__meta"><span>BESTIA ORIGEN · HIELO ANCESTRAL</span><span>#05</span></div>
-      <span class="skill-front__sigil" aria-hidden="true">🦎</span>
-      <h5>🦎 Lagarto</h5>
-      <p>El punto de partida de Bestias Génesis: rápido, sigiloso y experto en ataques veloces.</p>
-      <button class="flip-card__btn" type="button">📜 Descubrir ficha</button>
-    </div>
-    <div class="flip-card__back genesis-lagarto-back">
-      <span class="genesis-lagarto-back__eyebrow">⚖️ BESTIA ORIGEN</span>
-      <strong>🦎 Lagarto</strong>
-      <p>Velocidad, sigilo y dos técnicas de Hielo Ancestral forman parte de su repertorio.</p>
-      <span class="genesis-lagarto-back__pending">🎬 Video de demostración pendiente</span>
-      <button class="flip-card__btn flip-card__btn--back" type="button">↩ Volver</button>
-    </div>
-  </div>
-</article>
+<!-- 🦎 Lagarto: quinto registro con video -->
+        <article class="genesis-avances__item flip-card" data-skill="lagarto">
+          <div class="flip-card__inner">
+            <div class="flip-card__front">
+              <div class="skill-front__meta"><span>BESTIA ORIGEN · HIELO ANCESTRAL</span><span>#05</span></div>
+              <span class="skill-front__sigil" aria-hidden="true">🦎</span>
+              <h5>🦎 Lagarto</h5>
+              <p>El punto de partida de Bestias Génesis: rápido, sigiloso y experto en ataques veloces.</p>
+              <button class="flip-card__btn" type="button">🎬 Ver video</button>
+            </div>
+            <div class="flip-card__back">
+              <div class="flip-card__video-wrap">
+                <iframe data-src="https://www.youtube.com/embed/pOyRigK9YC8?rel=0&amp;playsinline=1" title="Lagarto — avance de Bestias Génesis" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              <button class="genesis-cinema__open" type="button" aria-label="Ver este video en modo cine">⛶ Ver en grande</button>
+              <a class="flip-card__yt-link" href="https://youtu.be/pOyRigK9YC8?si=Br9pjPpylqBRbaM8" target="_blank" rel="noopener noreferrer">↗ Ver en YouTube</a>
+              <button class="flip-card__btn flip-card__btn--back" type="button">↩ Volver</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 🐺 Lobo Alfa: sexto registro con video -->
+        <article class="genesis-avances__item flip-card" data-skill="lobo">
+          <div class="flip-card__inner">
+            <div class="flip-card__front">
+              <div class="skill-front__meta"><span>LÍDER DE MANADA · DOMINIO CARMESÍ</span><span>#06</span></div>
+              <span class="skill-front__sigil" aria-hidden="true">🐺</span>
+              <h5>🐺 Lobo Alfa</h5>
+              <p>Un líder que convoca compañeros, desata a su manada y abre un dominio carmesí rodeado de energía.</p>
+              <button class="flip-card__btn" type="button">🎬 Ver video</button>
+            </div>
+            <div class="flip-card__back">
+              <div class="flip-card__video-wrap">
+                <iframe data-src="https://www.youtube.com/embed/p03OrOONFxk?rel=0&amp;playsinline=1" title="Lobo Alfa — avance de Bestias Génesis" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>
+              <button class="genesis-cinema__open" type="button" aria-label="Ver este video en modo cine">⛶ Ver en grande</button>
+              <a class="flip-card__yt-link" href="https://youtu.be/p03OrOONFxk?si=RQ_JryqhjuvykB06" target="_blank" rel="noopener noreferrer">↗ Ver en YouTube</a>
+              <button class="flip-card__btn flip-card__btn--back" type="button">↩ Volver</button>
+            </div>
+          </div>
+        </article>
       </div>
 
       <!-- ✦ NUEVO: Santuario de Invocación. Miniexperiencia web; no es una mecánica del juego. -->
@@ -2231,6 +2304,60 @@
           <button class="genesis-santuario__btn genesis-santuario__btn--secundario" type="button" id="genesis-santuario-ver" hidden>↗ Ver su registro</button>
         </div>
         <small class="genesis-santuario__disclaimer">Experiencia interactiva de esta web. No desbloquea criaturas ni modifica tu partida.</small>
+      </section>
+
+      <!-- 🖼️ ARCHIVO VISUAL: carrusel con las capturas del repositorio -->
+      <section class="genesis-gallery" id="galeria-bestias" aria-labelledby="genesis-gallery-title">
+        <div class="genesis-gallery__header">
+          <div class="genesis-gallery__heading">
+            <span class="genesis-gallery__eyebrow">✦ ARCHIVO VISUAL · 09 CAPTURAS</span>
+            <h5 id="genesis-gallery-title">Galería de Bestias</h5>
+            <p>Un vistazo a las criaturas y al mundo que está tomando forma.</p>
+          </div>
+          <div class="genesis-gallery__controls" aria-label="Controles de la galería">
+            <button type="button" id="genesis-gallery-prev" aria-label="Ver capturas anteriores" disabled>‹</button>
+            <button type="button" id="genesis-gallery-next" aria-label="Ver más capturas">›</button>
+          </div>
+        </div>
+        <div class="genesis-gallery__viewport" id="genesis-gallery-viewport" tabindex="0" aria-label="Carrusel de nueve capturas. Usa las flechas izquierda y derecha para recorrerlo.">
+          <figure class="genesis-gallery__slide">
+            <img src="capturas-bestias/lagarto.png" alt="Captura del Lagarto" loading="lazy" decoding="async">
+            <figcaption>🦎 Lagarto</figcaption>
+          </figure>
+          <figure class="genesis-gallery__slide">
+            <img src="capturas-bestias/lobo_alfa.png" alt="Captura del Lobo Alfa" loading="lazy" decoding="async">
+            <figcaption>🐺 Lobo Alfa</figcaption>
+          </figure>
+          <figure class="genesis-gallery__slide">
+            <img src="capturas-bestias/abeja.png" alt="Captura de la Abeja Reina" loading="lazy" decoding="async">
+            <figcaption>🐝 Abeja Reina</figcaption>
+          </figure>
+          <figure class="genesis-gallery__slide">
+            <img src="capturas-bestias/escarabajo.png" alt="Captura del Escarabajo Bombardero" loading="lazy" decoding="async">
+            <figcaption>🪲 Escarabajo Bombardero</figcaption>
+          </figure>
+          <figure class="genesis-gallery__slide">
+            <img src="capturas-bestias/dragon.png" alt="Captura del Dragón Primordial" loading="lazy" decoding="async">
+            <figcaption>🐉 Dragón Primordial</figcaption>
+          </figure>
+          <figure class="genesis-gallery__slide">
+            <img src="capturas-bestias/pangolin.png" alt="Captura del Pangolín de Obsidiana" loading="lazy" decoding="async">
+            <figcaption>🦔 Pangolín de Obsidiana</figcaption>
+          </figure>
+          <figure class="genesis-gallery__slide">
+            <img src="capturas-bestias/ajolote.png" alt="Captura del Ajolote" loading="lazy" decoding="async">
+            <figcaption>🫧 Ajolote</figcaption>
+          </figure>
+          <figure class="genesis-gallery__slide">
+            <img src="capturas-bestias/trex.png" alt="Captura del T-Rex" loading="lazy" decoding="async">
+            <figcaption>🦖 T-Rex</figcaption>
+          </figure>
+          <figure class="genesis-gallery__slide">
+            <img src="capturas-bestias/galeria.png" alt="Vista general de la galería de bestias" loading="lazy" decoding="async">
+            <figcaption>🖼️ Galería de Bestias</figcaption>
+          </figure>
+        </div>
+        <p class="genesis-gallery__hint">Desliza, usa la rueda del ratón o pulsa las flechas para explorar las capturas.</p>
       </section>
 
       <p class="genesis-avances__note">Avances en desarrollo. La disponibilidad se anunciará por los canales oficiales.</p>
@@ -3024,7 +3151,7 @@ if (genesisCinema) {
   // Los seis registros están enlazados a elementos reales en el archivo de combate.
   const spirits = [
     {name:'🐺 Lobo Alfa', symbol:'🐺', affinity:'DOMINIO CARMESÍ · MANADA',
-     description:'El líder de la manada despierta un territorio carmesí y convoca a sus lobos.', rgb:'236,65,94', target:'.genesis-avances__hero'},
+     description:'El líder de la manada despierta un territorio carmesí y convoca a sus lobos.', rgb:'236,65,94', target:'[data-skill="lobo"]'},
     {name:'🐝 Abeja Reina', symbol:'🐝', affinity:'PICADA · AGUIJÓN',
      description:'Un descenso veloz y un aguijonazo sorprenden a su objetivo.',rgb:'255,194,61',target:'[data-skill="abeja"]'},
     {name:'🪲 Escarabajo Bombardero',symbol:'🪲',affinity:'QUITINA · ARMADURA',
@@ -3755,6 +3882,45 @@ if (avatarWrapTilt && avatarRingTilt && !prefersReducedMotion && hoverFino) {
     avatarRingTilt.style.transform  = '';
   });
 }
+
+/* ═══════════════════════════════════════════════════
+   🖼️ CARRUSEL DE CAPTURAS — sin dependencias externas
+   ═══════════════════════════════════════════════════ */
+(() => {
+  const viewport = document.getElementById('genesis-gallery-viewport');
+  const previous = document.getElementById('genesis-gallery-prev');
+  const next = document.getElementById('genesis-gallery-next');
+  if (!viewport || !previous || !next) return;
+
+  const step = () => {
+    const slide = viewport.querySelector('.genesis-gallery__slide');
+    if (!slide) return viewport.clientWidth * 0.85;
+    const styles = window.getComputedStyle(viewport);
+    const gap = parseFloat(styles.columnGap || styles.gap) || 12;
+    return slide.getBoundingClientRect().width + gap;
+  };
+  const updateControls = () => {
+    const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+    previous.disabled = viewport.scrollLeft <= 3;
+    next.disabled = viewport.scrollLeft >= maxScroll - 3;
+  };
+  const move = direction => {
+    viewport.scrollBy({
+      left: step() * direction,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
+  };
+
+  previous.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+  viewport.addEventListener('scroll', updateControls, { passive: true });
+  viewport.addEventListener('keydown', event => {
+    if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
+    if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
+  });
+  window.addEventListener('resize', updateControls, { passive: true });
+  updateControls();
+})();
 </script>
 </body>
 </html>
